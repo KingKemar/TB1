@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwf458rvo48tl"]
+
+[ext_resource type="Texture2D" uid="uid://cjsdyr1vtyjoe" path="res://Assets/Background/game_background_1/layers/battleground.png" id="1_2aabd"]
+[ext_resource type="Script" path="res://Player.gd" id="2_n4fkl"]
+[ext_resource type="Texture2D" uid="uid://bmf773qh5ie4b" path="res://Assets/Characters/Swordsman/Idle.png" id="3_sudas"]
+[ext_resource type="Texture2D" uid="uid://brv5ffii5m21y" path="res://Assets/Background/game_background_1/layers/back_decor.png" id="4_4i7by"]
+[ext_resource type="Texture2D" uid="uid://dn55ft4jv5cyf" path="res://Assets/Background/game_background_1/layers/front_decor.png" id="5_tch70"]
+[ext_resource type="PackedScene" uid="uid://cvnbpsx20svhh" path="res://monster_0.tscn" id="6_wbvl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfkce"]
+size = Vector2(43, 6)
+
+[node name="Arena1" type="Node2D"]
+
+[node name="Arena" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-6, 3)
+scale = Vector2(1.28672, 1.39213)
+texture = ExtResource("1_2aabd")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+z_index = 1
+script = ExtResource("2_n4fkl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-3.5, 59)
+shape = SubResource("RectangleShape2D_pfkce")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture_filter = 1
+position = Vector2(-14, -129)
+scale = Vector2(3.21875, 3.01563)
+texture = ExtResource("3_sudas")
+hframes = 8
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.3, 0.3)
+limit_smoothed = true
+
+[node name="back_decor" type="Sprite2D" parent="."]
+position = Vector2(-12, -723)
+scale = Vector2(1.28594, 1)
+texture = ExtResource("4_4i7by")
+
+[node name="RigidBody2D" type="StaticBody2D" parent="back_decor"]
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="back_decor/RigidBody2D"]
+polygon = PackedVector2Array(-1920.78, -314, -1365.54, -338, -1373.32, -272, -1276.89, -243, -695.99, -219, -485.249, -238, -145.419, -305, -118.979, -267, -59.8785, -281, 125.2, -386, 447.145, -400, 447.145, -329, 509.356, -305, 916.841, -295, 1234.9, -391, 1567.73, -424, 1923.11, -419, 1930.11, -776, -1913, -781)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-10.0001, 211.5)
+scale = Vector2(1.28594, 1.19583)
+texture = ExtResource("5_tch70")
+
+[node name="RigidBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/RigidBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(-1923.89, 788.153, -1708.48, 754.704, -1304.88, 750.523, -1198.35, 804.878, -994.605, 829.965, -199.077, 842.509, -195.188, 864.251, 247.29, 846.69, 247.29, 800.697, 698.323, 796.516, 643.111, 838.328, 1196.01, 872.613, 1399.76, 846.69, 1344.54, 788.153, 1928.55, 767.247, 1920.78, 1070.8, -1935.55, 1079.16)
+
+[node name="Monster0" parent="." instance=ExtResource("6_wbvl0")]
+position = Vector2(-1093, -458)

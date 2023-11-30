@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvnbpsx20svhh"]
+
+[ext_resource type="Script" path="res://MonsterBody.gd" id="1_d6lcx"]
+[ext_resource type="Texture2D" uid="uid://mbaj5gm1680a" path="res://Assets/NPCs/Minotaur_1/PNG/PNG Sequences/Idle/0_Minotaur_Idle_000.png" id="2_iguc2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcgjr"]
+size = Vector2(154.507, 162.715)
+
+[node name="Monster0" type="Node2D"]
+
+[node name="MonsterBody" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_d6lcx")
+
+[node name="Sprite2D" type="Sprite2D" parent="MonsterBody"]
+position = Vector2(-1, 0)
+scale = Vector2(0.675556, 0.644444)
+texture = ExtResource("2_iguc2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MonsterBody"]
+position = Vector2(-5.18889, 139.431)
+scale = Vector2(0.675556, 0.644444)
+shape = SubResource("RectangleShape2D_wcgjr")
