@@ -14,8 +14,10 @@ func _ready():
 		push_error("Player node not found at path: " + player_node_path)
 
 	var spell_timer_node_path = "SpellTimer"
+	spell_timer = get_node("SpellTimer")
+	
 	if has_node(spell_timer_node_path):
-		spell_timer = get_node("SpellTimer")
+		
 		spell_timer.timeout.connect(Callable( self, "_on_spell_timer_timeout"))
 		spell_timer.start()
 	else:
