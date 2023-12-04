@@ -26,3 +26,5 @@ texture = ExtResource("2_iguc2")
 position = Vector2(-5.18889, 139.431)
 scale = Vector2(0.675556, 0.644444)
 shape = SubResource("RectangleShape2D_wcgjr")
+
+[connection signal="timeout" from="MonsterBody/SpellTimer" to="MonsterBody" method="_on_spell_timer_timeout"]

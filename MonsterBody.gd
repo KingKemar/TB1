@@ -16,7 +16,7 @@ func _ready():
 	var spell_timer_node_path = "SpellTimer"
 	if has_node(spell_timer_node_path):
 		spell_timer = get_node("SpellTimer")
-		spell_timer.connect("timeout", self, "_on_SpellTimer_timeout")
+		spell_timer.timeout.connect(Callable( self, "_on_spell_timer_timeout"))
 		spell_timer.start()
 	else:
 		push_error("SpellTimer node not found at path: " + spell_timer_node_path)
@@ -26,9 +26,9 @@ func _physics_process(_delta):
 	velocity = direction * speed
 	move_and_slide()
 
-func _on_SpellTimer_timeout():
-	# This function is called every 15 seconds
+func _on_spell_timer_timeout():
 	cast_spell()
+
 
 func cast_spell():
 	# Logic for casting the spell
@@ -40,6 +40,11 @@ func cast_spell():
 
 	# Instance your flame circle AoE spell here
 	# For example, assuming you have a PackedScene for your flame spell:
-	var flame_circle = preload("res://flame_circle.tscn").instance()
+	var flame_circle_scene = preload("res://flame_circle.tscn")
+	var flame_circle = flame_circle_scene.instantiate()
 	flame_circle.global_position = spell_location
-	add_child(flame_circle)
+	# Add the spell instance to the root node or a specific arena node
+	var arena = get_node("/root/Arena1")  # Adjust the path as necessary
+	arena.add_child(flame_circle)
+
+
