@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpd6h4k735tnd"]
+
+[ext_resource type="Texture2D" uid="uid://cnmwga0wy60n6" path="res://Assets/Sprites/flame2/png/09.png" id="1_ncs4e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l1jeq"]
+radius = 33.0606
+
+[node name="FlameCircle" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_l1jeq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(-1, -5.96046e-08)
+scale = Vector2(0.2, 0.201)
+texture = ExtResource("1_ncs4e")

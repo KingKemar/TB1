@@ -15,7 +15,6 @@ script = ExtResource("1_d6lcx")
 
 [node name="SpellTimer" type="Timer" parent="MonsterBody"]
 wait_time = 15.0
-autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MonsterBody"]
 position = Vector2(-1, 0)
