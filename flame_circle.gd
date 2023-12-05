@@ -1,6 +1,6 @@
 extends Area2D
 
-var damage_dealt = 10
+var damage_dealt = 101
 var hit_time = 2.5  # Time in seconds when the spell hits
 var elapsed_time = 0.0  # To track the elapsed time
 var damage_already_dealt = false

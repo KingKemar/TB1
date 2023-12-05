@@ -6,6 +6,7 @@ var hp = 100
 var hp_max = 100
 var mana = 50
 var energy = 50
+var dead = false
 
 # Functions
 func _init(_hp_max: int, _mana: int, _energy: int):
@@ -15,8 +16,16 @@ func _init(_hp_max: int, _mana: int, _energy: int):
 
 func damage_received(damage: int):
 	hp -= damage
+	
 	# Check for death, apply damage effects, etc.
+	if hp <= 0 :
+		hp = 0
+		player_dies()
 	print("Damage received: ", damage, " Remaining HP: ", hp)
+	
+func player_dies():
+	dead = true
+	print("Player is dead")
 
 func healed(healing: int):
 	if hp + healing > hp_max :
