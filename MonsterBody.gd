@@ -3,7 +3,7 @@ extends CharacterBody2D
 var speed = 250  # Speed of the monster
 var player  # Reference to the player
 var spell_timer
-
+var character_base = CharacterBase.new(1000,0,0)
 
 func _ready():
 	# Assuming the player node is named "Player" and is at the root of the scene

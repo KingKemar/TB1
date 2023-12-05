@@ -80,6 +80,7 @@ animations = [{
 [node name="FlameCircle" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
 script = ExtResource("1_pkf5h")
 
 [node name="Timer" type="Timer" parent="Area2D"]

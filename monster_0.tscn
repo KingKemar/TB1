@@ -10,7 +10,7 @@ size = Vector2(154.507, 162.715)
 
 [node name="MonsterBody" type="CharacterBody2D" parent="."]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 2147483684
 script = ExtResource("1_d6lcx")
 
 [node name="SpellTimer" type="Timer" parent="MonsterBody"]

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 # speed of the character
 var speed = 500
+var character_base = CharacterBase.new(100,100,0)
 
 func _physics_process(_delta):
 	# Local variable for movement direction
@@ -25,3 +26,6 @@ func _physics_process(_delta):
 
 	# Move the character using move_and_slide
 	move_and_slide()
+
+func damage_received(damage_dealt):
+	character_base.damage_received(damage_dealt)

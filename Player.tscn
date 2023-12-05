@@ -18,8 +18,9 @@ position = Vector2(-6, 3)
 scale = Vector2(1.28672, 1.39213)
 texture = ExtResource("1_2aabd")
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="." groups=["characters"]]
 z_index = 1
+collision_mask = 2147483672
 script = ExtResource("2_n4fkl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -44,6 +45,7 @@ scale = Vector2(1.28594, 1)
 texture = ExtResource("4_4i7by")
 
 [node name="RigidBody2D" type="StaticBody2D" parent="back_decor"]
+collision_layer = 2147483648
 collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="back_decor/RigidBody2D"]
@@ -55,6 +57,8 @@ scale = Vector2(1.28594, 1.19583)
 texture = ExtResource("5_tch70")
 
 [node name="RigidBody2D" type="StaticBody2D" parent="Sprite2D"]
+collision_layer = 2147483648
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/RigidBody2D"]
 build_mode = 1
