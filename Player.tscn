@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwf458rvo48tl"]
+[gd_scene load_steps=10 format=3 uid="uid://cwf458rvo48tl"]
 
 [ext_resource type="Texture2D" uid="uid://cjsdyr1vtyjoe" path="res://Assets/Background/game_background_1/layers/battleground.png" id="1_2aabd"]
 [ext_resource type="Script" path="res://Player.gd" id="2_n4fkl"]
@@ -10,11 +10,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfkce"]
 size = Vector2(43, 6)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpys8"]
+bg_color = Color(0.929412, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8e82"]
+bg_color = Color(0, 0.784314, 0.27451, 1)
+
 [node name="Arena1" type="Node2D"]
 
 [node name="Arena" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-6, 3)
+position = Vector2(-4.57764e-05, -3.8147e-06)
 scale = Vector2(1.28672, 1.39213)
 texture = ExtResource("1_2aabd")
 
@@ -30,7 +36,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture_filter = 1
-position = Vector2(-14, -129)
+position = Vector2(3, -122)
 scale = Vector2(3.21875, 3.01563)
 texture = ExtResource("3_sudas")
 hframes = 8
@@ -39,12 +45,23 @@ hframes = 8
 zoom = Vector2(0.3, 0.3)
 limit_smoothed = true
 
+[node name="HP_bar" type="ProgressBar" parent="Player"]
+top_level = true
+layout_direction = 1
+offset_right = 200.0
+offset_bottom = 32.0
+theme_override_styles/background = SubResource("StyleBoxFlat_rpys8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_a8e82")
+show_percentage = false
+
 [node name="back_decor" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(-12, -723)
 scale = Vector2(1.28594, 1)
 texture = ExtResource("4_4i7by")
 
 [node name="RigidBody2D" type="StaticBody2D" parent="back_decor"]
+position = Vector2(-4.66585, -6)
 collision_layer = 2147483648
 collision_mask = 3
 
